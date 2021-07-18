@@ -1,0 +1,16 @@
+{
+  "version": "1.3.6",
+  "revision": 41,
+  "structure": [
+    {
+      "name": "new_001",
+      "mod": 1626620343017,
+      "type": "sketch",
+      "code": "let numX = 19;\nlet numY = 19;\n\nlet t = create2Darray(numX, numY);\n\nfunction setup() {\n\tcreateCanvas(1000, 1000);\n\tstroke(255, 30, 30);\n\tstrokeWeight(4);\n\ttextSize(24);\n\ttextAlign(CENTER, CENTER);\n\t\n\tfor (let y = 0; y < numY; y++) {\n\t\tfor (let x = 0; x < numX; x++) {\n\t\t\tt[x][y] = str(char(int(random(65, 90))));\n\t\t}\n\t}\n}\n\nfunction draw() {\n\tbackground(255);\n\tnoFill();\n\tcircle(mouseX, mouseY, 36);\n\t\n\tfill(0);\n\tfor (let y = 0; y < numY; y++) {\n\t\tfor (let x = 0; x < numX; x++) {\n\t\t\tlet posX = 50 * (x + 1);\n\t\t\tlet posY = 50 * (y + 1);\n\t\t\t\n\t\t\tpush();\n\t\t\tnoStroke();\n\t\t\ttranslate(posX, posY);\n\t\t\trotate(atan2(mouseY-posY, mouseX-posX) + radians(dist(mouseX, mouseY, posX, posY) / 90));\n\t\t\ttext(t[x][y], 0, 0);\n\t\t\tpop();\n\t\t}\n\t}\n}\n\nfunction create2Darray(rows, columns) {\n\tlet arr = new Array(rows);\n\tfor (let i = 0; i < rows; i++) {\n\t\tarr[i] = new Array(columns);\n\t}\n\treturn arr;\n}"
+    }
+  ],
+  "count": {
+    "sketches": 1,
+    "folders": 0
+  }
+}
